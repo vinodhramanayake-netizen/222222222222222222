@@ -1,15 +1,21 @@
 'use client';
 
+import { FileText, UserPlus } from 'lucide-react';
 import { AppShell, Card, Text } from '@/components/primitives';
 import { DashboardGrid } from '@/components/DashboardGrid';
 import { DemoDataBanner } from '@/components/DemoDataBanner';
 import { SeedControls } from '@/components/SeedControls';
+import {
+  ChurnGauge,
+  KpiPanelCard,
+  LtvCard,
+  StatCard,
+} from '@/components/widgets';
 import { useSeededDashboard } from '@/hooks/useSeededDashboard';
 
 /**
- * Placeholder surface for a widget that is wired up in a later step. Keeps the
- * 3-column layout and column ordering verifiable now; Steps 4–5 replace each
- * placeholder with the real widget without changing the page structure.
+ * Placeholder surface for a center-column widget wired up in Step 5. Keeps the
+ * layout complete while the tickets list, feedback carousel and chart are built.
  */
 function WidgetPlaceholder({ title }: { title: string }) {
   return (
@@ -53,16 +59,12 @@ export default function DashboardPage() {
     );
   }
 
+  const { support, product } = data;
+
   return (
     <AppShell banner={banner}>
       <DashboardGrid
-        left={
-          <>
-            <WidgetPlaceholder title="CSAT" />
-            <WidgetPlaceholder title="First Response Time" />
-            <WidgetPlaceholder title="Avg Resolution Time" />
-          </>
-        }
+        left={<KpiPanelCard support={support} />}
         center={
           <>
             <WidgetPlaceholder title="Tickets by Tag" />
@@ -72,10 +74,18 @@ export default function DashboardPage() {
         }
         right={
           <>
-            <WidgetPlaceholder title="New Users" />
-            <WidgetPlaceholder title="Reports Created" />
-            <WidgetPlaceholder title="Churn" />
-            <WidgetPlaceholder title="Lifetime Value" />
+            <StatCard
+              title="New Users"
+              stat={product.newUsers}
+              icon={UserPlus}
+            />
+            <StatCard
+              title="Reports Created"
+              stat={product.reportsCreated}
+              icon={FileText}
+            />
+            <ChurnGauge churnPercent={product.churnPercent} />
+            <LtvCard ltv={product.ltv} />
           </>
         }
       />
