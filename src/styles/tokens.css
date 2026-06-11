@@ -1,0 +1,144 @@
+/*
+ * DS1 design tokens exposed as CSS custom properties.
+ * Generated from design-system-ds1-tokens.json. The dark theme is the default
+ * (applied at :root); the light theme is available via [data-theme='light'].
+ *
+ * Components consume these variables exclusively — no hard-coded colors/spacing
+ * in component CSS — so the whole UI can be re-themed from one place.
+ */
+
+:root,
+[data-theme='dark'] {
+  /* Brand / primary */
+  --color-primary: #7c5cfc;
+  --color-primary-hover: #6b4df0;
+  --color-primary-active: #5a3de4;
+  --color-primary-subtle: rgba(124, 92, 252, 0.18);
+  --color-primary-contrast: #ffffff;
+
+  /* Backgrounds / surfaces */
+  --bg-page: #0a0a0a;
+  --bg-surface: #111111;
+  --bg-card: #1e1e1e;
+  --bg-elevated: #1a1a1a;
+  --bg-sunken: #0a0a0a;
+  --bg-overlay: rgba(0, 0, 0, 0.72);
+
+  /* Text */
+  --text-primary: #f2f2f2;
+  --text-secondary: #a0a0a0;
+  --text-disabled: #666666;
+  --text-inverse: #0a0a0a;
+
+  /* Borders */
+  --border-default: #2a2a2a;
+  --border-focus: #7c5cfc;
+
+  /* Semantic */
+  --color-success: #10b981;
+  --color-success-contrast: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* Brand glow overlay */
+  --brand-glow: rgba(124, 92, 252, 0.18);
+}
+
+[data-theme='light'] {
+  --color-primary: #7c5cfc;
+  --color-primary-hover: #6b4df0;
+  --color-primary-active: #5a3de4;
+  --color-primary-subtle: rgba(124, 92, 252, 0.12);
+  --color-primary-contrast: #ffffff;
+
+  --bg-page: #f8f8f9;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-sunken: #f4f4f5;
+  --bg-overlay: rgba(0, 0, 0, 0.4);
+
+  --text-primary: #18181b;
+  --text-secondary: #52525b;
+  --text-disabled: #a1a1aa;
+  --text-inverse: #ffffff;
+
+  --border-default: #e4e4e7;
+  --border-focus: #7c5cfc;
+
+  --color-success: #10b981;
+  --color-success-contrast: #16a34a;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+  --color-info: #2563eb;
+
+  --brand-glow: rgba(124, 92, 252, 0.1);
+}
+
+:root {
+  /* Typography families */
+  --font-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Font sizes (px) */
+  --font-size-2xs: 10px;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 32px;
+  --font-size-3xl: 40px;
+
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Spacing scale (px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-brand: 0 0 20px rgba(124, 92, 252, 0.35);
+
+  /* Motion */
+  --duration-fast: 120ms;
+  --duration-normal: 200ms;
+  --duration-slow: 350ms;
+  --duration-chart: 600ms;
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
+  --easing-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Accessibility */
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+  --focus-ring-color: #7c5cfc;
+  --min-touch-target: 44px;
+
+  /* Layout */
+  --desktop-grid-min-width: 1280px;
+}

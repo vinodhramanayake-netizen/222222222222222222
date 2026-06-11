@@ -1,0 +1,83 @@
+/* DS1 typography styles. Each class maps to one entry in tokens `typography.styles`. */
+
+.display {
+  font-family: var(--font-base);
+  font-size: var(--font-size-2xl);
+  line-height: 1.2;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+}
+
+.pageTitle {
+  font-family: var(--font-base);
+  font-size: var(--font-size-xl);
+  line-height: 1.3;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+}
+
+.sectionHeading {
+  font-family: var(--font-base);
+  font-size: var(--font-size-lg);
+  line-height: 1.35;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.cardTitle {
+  font-family: var(--font-base);
+  font-size: var(--font-size-md);
+  line-height: 1.4;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.body {
+  font-family: var(--font-base);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  font-weight: var(--font-weight-regular);
+  color: var(--text-primary);
+}
+
+.caption {
+  font-family: var(--font-base);
+  font-size: var(--font-size-xs);
+  line-height: 1.5;
+  font-weight: var(--font-weight-regular);
+  color: var(--text-secondary);
+}
+
+.overline {
+  font-family: var(--font-base);
+  font-size: var(--font-size-2xs);
+  line-height: 1.4;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  line-height: 1.6;
+  font-weight: var(--font-weight-regular);
+  color: var(--text-secondary);
+}
+
+.kpiValue {
+  font-family: var(--font-base);
+  font-size: var(--font-size-2xl);
+  line-height: 1.1;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+}
+
+.kpiLabel {
+  font-family: var(--font-base);
+  font-size: var(--font-size-xs);
+  line-height: 1.4;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+}
