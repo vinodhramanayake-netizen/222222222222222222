@@ -9,6 +9,13 @@ describe('DemoDataBanner', () => {
     expect(screen.getByText('Demo Data')).toBeInTheDocument();
   });
 
+  it('exposes the brand as the page-level h1 heading', () => {
+    render(<DemoDataBanner />);
+    expect(
+      screen.getByRole('heading', { level: 1, name: 'InsightBoard' })
+    ).toBeInTheDocument();
+  });
+
   it('exposes the Demo Data label as an accessible status', () => {
     render(<DemoDataBanner />);
     const status = screen.getByRole('status');

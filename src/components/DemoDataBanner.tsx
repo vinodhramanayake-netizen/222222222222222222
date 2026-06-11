@@ -25,7 +25,7 @@ export function DemoDataBanner({ controls }: DemoDataBannerProps) {
           size={22}
           aria-hidden="true"
         />
-        <Text variant="card-title" as="span">
+        <Text variant="card-title" as="h1">
           InsightBoard
         </Text>
         <span

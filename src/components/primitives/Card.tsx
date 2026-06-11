@@ -35,7 +35,13 @@ export function Card({
     <section className={classes} aria-label={label}>
       {(title || headerAction) && (
         <header className={styles.header}>
-          {title ? <Text variant="card-title">{title}</Text> : <span />}
+          {title ? (
+            <Text variant="card-title" as="h2">
+              {title}
+            </Text>
+          ) : (
+            <span />
+          )}
           {headerAction}
         </header>
       )}
