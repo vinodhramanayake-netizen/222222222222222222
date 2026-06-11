@@ -146,4 +146,5 @@ target, Lucide icons. Match it visually; reuse the primitives above.
 3. ✅ DashboardPage layout: 3-col grid, responsive horizontal scroll, Demo banner.
 4. ✅ Left + right column widgets (CSAT/FRT/ART, stat cards, churn gauge, LTV).
 5. ✅ Center widgets (tickets-by-tag, feedback carousel, dual-line chart) + a11y.
-6. Final verification against the full story.
+6. ✅ Final verification against the full story (a11y: page `h1` in banner,
+   Card titles `h2`; hygiene/fonts/design/build checks all pass).
