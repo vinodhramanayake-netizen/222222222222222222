@@ -122,7 +122,9 @@ src/
     DemoDataBanner  persistent sticky 'Demo Data' bar (hosts SeedControls)
     DashboardGrid   3-col grid + responsive horizontal-scroll region
     widgets/      Gauge + geometry.ts, DeltaBadge, KpiPanelCard, StatCard,
-                  ChurnGauge, LtvCard (+ .module.css, tests); lib/kpi.ts scales
+                  ChurnGauge, LtvCard, TicketsByTagList, CustomerFeedback-
+                  Carousel, TicketsDualLineChart (Recharts) (+ css, tests);
+                  lib/kpi.ts scales
 ```
 
 Data flow: `useSeededDashboard()` resolves the seed (URL `?seed=` or random
@@ -143,5 +145,5 @@ target, Lucide icons. Match it visually; reuse the primitives above.
    seed once/load, Regenerate updates seed+URL, "Last generated"). Unit-tested.
 3. ✅ DashboardPage layout: 3-col grid, responsive horizontal scroll, Demo banner.
 4. ✅ Left + right column widgets (CSAT/FRT/ART, stat cards, churn gauge, LTV).
-5. Center widgets (tickets-by-tag, feedback carousel, dual-line chart) + a11y.
+5. ✅ Center widgets (tickets-by-tag, feedback carousel, dual-line chart) + a11y.
 6. Final verification against the full story.
