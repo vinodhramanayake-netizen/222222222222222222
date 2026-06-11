@@ -1,57 +1,84 @@
 'use client';
 
 import { AppShell, Card, Text } from '@/components/primitives';
+import { DashboardGrid } from '@/components/DashboardGrid';
+import { DemoDataBanner } from '@/components/DemoDataBanner';
 import { SeedControls } from '@/components/SeedControls';
 import { useSeededDashboard } from '@/hooks/useSeededDashboard';
 
 /**
+ * Placeholder surface for a widget that is wired up in a later step. Keeps the
+ * 3-column layout and column ordering verifiable now; Steps 4–5 replace each
+ * placeholder with the real widget without changing the page structure.
+ */
+function WidgetPlaceholder({ title }: { title: string }) {
+  return (
+    <Card title={title}>
+      <Text variant="caption">Coming in a later step.</Text>
+    </Card>
+  );
+}
+
+/**
  * DashboardPage — the single route (`/`).
  *
- * Step 2 wires the deterministic seed lifecycle: data comes from one seed via
- * `useSeededDashboard`, the seed + "Last generated" time are shown, and
- * Regenerate picks a new seed (updating the `?seed=` URL). The persistent Demo
- * Data banner and full 3-column widget grid are composed in later steps; this
- * page already consumes the shared `data` object they will all read from.
+ * Composes the persistent Demo Data banner (with seed controls) and the
+ * responsive 3-column grid. All widgets read from the single seed-derived
+ * `data` object resolved by `useSeededDashboard`.
  */
 export default function DashboardPage() {
   const { data, regenerate } = useSeededDashboard();
 
-  return (
-    <AppShell
-      header={
-        <>
-          <Text variant="page-title">InsightBoard</Text>
-          <Text variant="caption">
-            Support &amp; product analytics — deterministic demo data.
-          </Text>
-        </>
+  const banner = (
+    <DemoDataBanner
+      controls={
+        data ? (
+          <SeedControls
+            seed={data.seed}
+            generatedAtIso={data.generatedAtIso}
+            onRegenerate={regenerate}
+          />
+        ) : null
       }
-    >
-      {data ? (
-        <>
-          <Card ariaLabel="Seed controls">
-            <SeedControls
-              seed={data.seed}
-              generatedAtIso={data.generatedAtIso}
-              onRegenerate={regenerate}
-            />
-          </Card>
-          <Card title="Data system ready">
-            <Text variant="body">
-              Generated a full dataset for the week of{' '}
-              {data.weekDates[0]?.dateLabel} – {data.weekDates[6]?.dateLabel}:
-              CSAT {data.support.csatPercent}%,{' '}
-              {data.support.ticketsByTag.length} ticket tags,{' '}
-              {data.support.feedback.length} feedback items. Widgets are added
-              in the next steps.
-            </Text>
-          </Card>
-        </>
-      ) : (
+    />
+  );
+
+  if (!data) {
+    return (
+      <AppShell banner={banner}>
         <Card>
           <Text variant="body">Generating demo data…</Text>
         </Card>
-      )}
+      </AppShell>
+    );
+  }
+
+  return (
+    <AppShell banner={banner}>
+      <DashboardGrid
+        left={
+          <>
+            <WidgetPlaceholder title="CSAT" />
+            <WidgetPlaceholder title="First Response Time" />
+            <WidgetPlaceholder title="Avg Resolution Time" />
+          </>
+        }
+        center={
+          <>
+            <WidgetPlaceholder title="Tickets by Tag" />
+            <WidgetPlaceholder title="Customer Feedback" />
+            <WidgetPlaceholder title="Tickets — Received vs Solved" />
+          </>
+        }
+        right={
+          <>
+            <WidgetPlaceholder title="New Users" />
+            <WidgetPlaceholder title="Reports Created" />
+            <WidgetPlaceholder title="Churn" />
+            <WidgetPlaceholder title="Lifetime Value" />
+          </>
+        }
+      />
     </AppShell>
   );
 }

@@ -15,6 +15,10 @@
   "plugins": ["@typescript-eslint", "jsx-a11y"],
   "rules": {
     "@typescript-eslint/no-explicit-any": "error",
+    "jsx-a11y/no-noninteractive-tabindex": [
+      "error",
+      { "tags": [], "roles": ["region"], "allowExpressionValues": true }
+    ],
     "@typescript-eslint/no-unused-vars": [
       "error",
       { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
