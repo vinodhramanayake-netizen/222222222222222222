@@ -1,0 +1,93 @@
+.carousel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.viewport {
+  position: relative;
+  min-height: 120px;
+  display: flex;
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+  padding: var(--space-4);
+  border: 1px solid var(--border-default);
+  border-left: 3px solid var(--color-info);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-elevated);
+  width: 100%;
+}
+
+.thumb {
+  color: var(--color-info);
+}
+
+.text {
+  color: var(--text-primary);
+}
+
+.srStatus {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.navButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--min-touch-target);
+  height: var(--min-touch-target);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--easing-standard);
+}
+
+.navButton:hover {
+  background-color: var(--bg-elevated);
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background-color: var(--border-default);
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--easing-standard),
+    transform var(--duration-fast) var(--easing-standard);
+}
+
+.dot[data-active='true'] {
+  background-color: var(--color-primary);
+  transform: scale(1.25);
+}

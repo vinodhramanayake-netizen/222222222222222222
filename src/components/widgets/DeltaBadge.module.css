@@ -1,0 +1,37 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+}
+
+/* Color by outcome (set via data-tone on the wrapper). */
+.badge[data-tone='positive'] .pill {
+  color: var(--color-success-contrast);
+  background-color: rgba(34, 197, 94, 0.16);
+}
+
+.badge[data-tone='negative'] .pill {
+  color: var(--color-error);
+  background-color: rgba(239, 68, 68, 0.16);
+}
+
+.badge[data-tone='neutral'] .pill {
+  color: var(--text-secondary);
+  background-color: var(--bg-elevated);
+}
+
+.comparison {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+}

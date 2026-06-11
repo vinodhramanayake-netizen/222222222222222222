@@ -1,0 +1,41 @@
+.scroller {
+  /* Below 1280px the grid is wider than this container, producing a deliberate
+     horizontal scroll. At >=1280px the grid fits, so no scrollbar appears. */
+  overflow-x: auto;
+  overflow-y: visible;
+  /* Smooth, contained scrolling that doesn't trap the page scroll. */
+  overscroll-behavior-x: contain;
+}
+
+.scroller:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: var(--radius-md);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns:
+    minmax(300px, 1fr)
+    minmax(440px, 1.6fr)
+    minmax(320px, 1fr);
+  gap: var(--space-6);
+  align-items: start;
+  /* Small bottom padding so the scrollbar doesn't crowd the last cards. */
+  padding-bottom: var(--space-1);
+}
+
+/* Below the DS1 xl breakpoint (1280px): pin the grid to a minimum width so the
+   scroller overflows and pans horizontally instead of stacking the columns. */
+@media (max-width: 1279.98px) {
+  .grid {
+    min-width: var(--desktop-grid-min-width);
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  min-width: 0;
+}

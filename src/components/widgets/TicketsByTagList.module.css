@@ -1,0 +1,41 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(96px, 30%) 1fr auto;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.tag {
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.barTrack {
+  height: 10px;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-sunken);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  /* Cyan volume bar (chartColors.bar). */
+  background-color: var(--chart-bar);
+  transition: width var(--duration-normal) var(--easing-decelerate);
+}
+
+.count {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
