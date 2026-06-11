@@ -7,23 +7,14 @@ import { DemoDataBanner } from '@/components/DemoDataBanner';
 import { SeedControls } from '@/components/SeedControls';
 import {
   ChurnGauge,
+  CustomerFeedbackCarousel,
   KpiPanelCard,
   LtvCard,
   StatCard,
+  TicketsByTagList,
+  TicketsDualLineChart,
 } from '@/components/widgets';
 import { useSeededDashboard } from '@/hooks/useSeededDashboard';
-
-/**
- * Placeholder surface for a center-column widget wired up in Step 5. Keeps the
- * layout complete while the tickets list, feedback carousel and chart are built.
- */
-function WidgetPlaceholder({ title }: { title: string }) {
-  return (
-    <Card title={title}>
-      <Text variant="caption">Coming in a later step.</Text>
-    </Card>
-  );
-}
 
 /**
  * DashboardPage — the single route (`/`).
@@ -67,9 +58,9 @@ export default function DashboardPage() {
         left={<KpiPanelCard support={support} />}
         center={
           <>
-            <WidgetPlaceholder title="Tickets by Tag" />
-            <WidgetPlaceholder title="Customer Feedback" />
-            <WidgetPlaceholder title="Tickets — Received vs Solved" />
+            <TicketsByTagList tags={support.ticketsByTag} />
+            <CustomerFeedbackCarousel items={support.feedback} />
+            <TicketsDualLineChart series={support.ticketsSeries} />
           </>
         }
         right={

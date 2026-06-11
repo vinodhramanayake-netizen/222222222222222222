@@ -1,0 +1,10 @@
+.figure {
+  margin: 0;
+  width: 100%;
+}
+
+.chart {
+  width: 100%;
+  /* Recharts measures its container; keep a stable height for the dial. */
+  min-height: 260px;
+}

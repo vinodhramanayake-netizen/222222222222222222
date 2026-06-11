@@ -141,4 +141,9 @@
 
   /* Layout */
   --desktop-grid-min-width: 1280px;
+
+  /* Chart palette (mirrors lib/tokens.ts chartColors for CSS consumers) */
+  --chart-received: #3b82f6; /* blue — tickets received */
+  --chart-solved: #f59e0b; /* amber — tickets solved */
+  --chart-bar: #22d3ee; /* cyan — tickets-by-tag volume bars */
 }
