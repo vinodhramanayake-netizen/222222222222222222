@@ -119,6 +119,8 @@ src/
   components/
     primitives/   AppShell, Card, Typography (+ .module.css), index.ts barrel
     SeedControls  seed display + Last generated + Regenerate (+ .module.css)
+    DemoDataBanner  persistent sticky 'Demo Data' bar (hosts SeedControls)
+    DashboardGrid   3-col grid + responsive horizontal-scroll region
 ```
 
 Data flow: `useSeededDashboard()` resolves the seed (URL `?seed=` or random
@@ -137,7 +139,7 @@ target, Lucide icons. Match it visually; reuse the primitives above.
 1. ✅ Scaffold: static export, DS1 tokens, primitives, tooling, CI.
 2. ✅ Deterministic seeded data system + seed lifecycle (URL `?seed=`, default
    seed once/load, Regenerate updates seed+URL, "Last generated"). Unit-tested.
-3. DashboardPage layout: 3-col grid, responsive horizontal scroll, Demo banner.
+3. ✅ DashboardPage layout: 3-col grid, responsive horizontal scroll, Demo banner.
 4. Left + right column widgets (CSAT/FRT/ART, stat cards, churn gauge, LTV).
 5. Center widgets (tickets-by-tag, feedback carousel, dual-line chart) + a11y.
 6. Final verification against the full story.
