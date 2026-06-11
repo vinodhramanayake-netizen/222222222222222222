@@ -110,12 +110,21 @@ Always run `npm run verify` before committing. CI
 
 ```
 src/
-  app/            layout.tsx (font+theme), page.tsx (DashboardPage), globals.css
+  app/            layout.tsx (font+theme), page.tsx (client DashboardPage), globals.css
   styles/         tokens.css (DS1 → CSS custom properties)
-  lib/            tokens.ts (typed token mirror); seeded data generator (added Step 2)
+  lib/            tokens.ts (typed token mirror); seed.ts (parse/random seed)
+    data/         types.ts, rng.ts (mulberry32), week.ts, format.ts, content.ts,
+                  generate.ts (generateDashboardData), index.ts barrel (+ *.test.ts)
+  hooks/          useSeededDashboard.ts (seed lifecycle: URL sync + regenerate)
   components/
     primitives/   AppShell, Card, Typography (+ .module.css), index.ts barrel
+    SeedControls  seed display + Last generated + Regenerate (+ .module.css)
 ```
+
+Data flow: `useSeededDashboard()` resolves the seed (URL `?seed=` or random
+default, once/load) and calls `generateDashboardData(seed, now)` → the single
+`DemoDashboardData` every widget reads. All numbers are seed-derived; only week
+dates, feedback timestamps and `generatedAtIso` use the injectable `now`.
 
 ## Design source of truth
 
@@ -126,8 +135,8 @@ target, Lucide icons. Match it visually; reuse the primitives above.
 ## Build roadmap (story steps)
 
 1. ✅ Scaffold: static export, DS1 tokens, primitives, tooling, CI.
-2. Deterministic seeded data system + seed lifecycle (URL `?seed=`, default seed
-   once/load, Regenerate updates seed+URL, "Last generated"). Unit-tested.
+2. ✅ Deterministic seeded data system + seed lifecycle (URL `?seed=`, default
+   seed once/load, Regenerate updates seed+URL, "Last generated"). Unit-tested.
 3. DashboardPage layout: 3-col grid, responsive horizontal scroll, Demo banner.
 4. Left + right column widgets (CSAT/FRT/ART, stat cards, churn gauge, LTV).
 5. Center widgets (tickets-by-tag, feedback carousel, dual-line chart) + a11y.
